@@ -6,7 +6,7 @@
 /*   By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 13:07:38 by MP9               #+#    #+#             */
-/*   Updated: 2025/10/13 15:40:06 by MP9              ###   ########.fr       */
+/*   Updated: 2025/11/05 20:52:28 by MP9              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isspace(int c);
+int		ft_matrixlen(char **matrix);
 int		ft_isprint(int c);
 int		ft_sqrt(int num);
 int		ft_atoi(const char *str);

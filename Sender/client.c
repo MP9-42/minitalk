@@ -6,7 +6,7 @@
 /*   By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:18:52 by MP9               #+#    #+#             */
-/*   Updated: 2025/11/05 20:08:07 by MP9              ###   ########.fr       */
+/*   Updated: 2025/11/05 21:28:03 by MP9              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,37 @@ void	send_char(int pid, unsigned char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		usleep(33);
 		bit++;
 	}
 }
 
+char	*get_words(char **matrix)
+{
+	int i;
+	int i2;
+	char *words;
 
+	i = 0;
+	if (!matrix)
+		return (NULL);
+	while (matrix[i])
+	{
+		while (matrix[i][i2] != '\0')
+			i2++;
+		i2 = 0; 
+		i++;
+	}
+	words = malloc(sizeof(char) * i + i2 + 1);
+	if (!words)
+		return (NULL);
+	return(words);
+}
 
 int main(int argc, char **argv)
 {
 	int		pid;
-	char	**msg;
+	char	*msg;
 	int		i;
 
 	if (argc < 3)
@@ -42,7 +62,8 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);
-	msg = argv[2];
+	msg = get_words(&argv[2]);
+	msg = parsing(msg, &argv[2]);
 	i = 0;
 	while (msg[i])
 		send_char(pid, msg[i++]);

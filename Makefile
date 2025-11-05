@@ -6,7 +6,7 @@
 #    By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 18:47:08 by MP9               #+#    #+#              #
-#    Updated: 2025/11/04 19:42:44 by MP9              ###   ########.fr        #
+#    Updated: 2025/11/05 21:02:43 by MP9              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SERVER_NAME = server
 CLIENT_DIR = objs1
 SERVER_DIR = objs2
 
-CLIENTFILES = Sender/client.c \
+CLIENTFILES = Sender/client.c  Sender/client_utils.c \
 
 SERVERFILES = Receiver/server.c \
 

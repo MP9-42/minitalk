@@ -6,7 +6,7 @@
 /*   By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:18:52 by MP9               #+#    #+#             */
-/*   Updated: 2025/11/05 21:28:03 by MP9              ###   ########.fr       */
+/*   Updated: 2025/11/06 18:23:23 by MP9              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int main(int argc, char **argv)
 	while (msg[i])
 		send_char(pid, msg[i++]);
 	send_char(pid, '\n');
+	free(msg);
 	return (0);
 }

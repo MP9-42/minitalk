@@ -6,31 +6,28 @@
 /*   By: MP9 <mikjimen@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 16:18:03 by MP9               #+#    #+#             */
-/*   Updated: 2025/11/04 19:20:02 by MP9              ###   ########.fr       */
+/*   Updated: 2025/11/06 19:10:19 by MP9              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
 
-
-void	signal_handler(int sig, siginfo_t *info, void *context)
+void	signal_handler(int siggi, siginfo_t *info, void *context)
 {
 	static unsigned char	c;
 	static int				bit;
 
 	c = 0;
 	bit = 0;
-	(void)context;
-	if (sig == SIGUSR2)
-		c |= (1 << bit);
-	bit++;
+	c = c | ((siggi == SIGUSR1) << bit);
 	if (bit == 8)
 	{
 		write(1, &c, 1);
-		bit = 0;
 		c = 0;
+		bit = 0;
 	}
-	kill(info->si_pid, SIGUSR1);
+	kill(info->si_pid, SIGUSR2);
+	(void)context;
 }
 
 int main(void)
